@@ -58,28 +58,41 @@
     justify-content: center;
     flex-grow: 1;
 
-    background-color: red;
+    gap: 14px;
+    padding: 14px;
 }
 
 #chat {
-    height: 90vh;
+    height: 100%;
     min-width: 720px;
     flex-grow: 1;
 
     padding: 7px;
-    background-color: green;
+    background-color: var(--background-color);
+    border: 2px solid var(--secondary-color);
 }
 
 #sidebar {
-    height: 90vh;
+    height: 100%;
     width: 240px;
-
-    padding: 7px;
-    padding-left: 0px;
-    background-color: blue;
 }
 
-@media (max-width: 959px) {
+#sign-in-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 7px;
+    padding: 7px;
+    border: 2px solid var(--secondary-color);
+}
+
+#id, #password {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1001px) {
     #sidebar {
         display: none;
     }
