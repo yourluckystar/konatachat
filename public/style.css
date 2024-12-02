@@ -6,7 +6,7 @@
     --shadow-color: #292323;
     --light-color: #f6e9e0;
     --normal-font-size: 16px;
-    --big-font-size: 26px;
+    --big-font-size: 18px;
 }
 
 * {
@@ -38,9 +38,11 @@
 #container {
     display: flex;
     flex-direction: column;
+
+    background-image: url('assets/wallpaper.png');
 }
 
-#nav {
+#header {
     height: auto;
     width: 100%;
 }
