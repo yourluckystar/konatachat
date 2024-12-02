@@ -45,4 +45,7 @@
 #header {
     height: auto;
     width: 100%;
+
+    background-color: var(--background-color);
+    border-bottom: 2px solid var(--secondary-color);
 }
