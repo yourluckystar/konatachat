@@ -39,6 +39,8 @@
     display: flex;
     flex-direction: column;
 
+    height: 100vh;
+
     background-image: url('assets/wallpaper.png');
 }
 
@@ -48,4 +50,37 @@
 
     background-color: var(--background-color);
     border-bottom: 2px solid var(--secondary-color);
+}
+
+#main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+
+    background-color: red;
+}
+
+#chat {
+    height: 90vh;
+    min-width: 720px;
+    flex-grow: 1;
+
+    padding: 7px;
+    background-color: green;
+}
+
+#sidebar {
+    height: 90vh;
+    width: 240px;
+
+    padding: 7px;
+    padding-left: 0px;
+    background-color: blue;
+}
+
+@media (max-width: 959px) {
+    #sidebar {
+        display: none;
+    }
 }
