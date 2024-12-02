@@ -7,23 +7,27 @@
     <title>konatachat</title>
 </head>
 <body id="container">
-    <nav id="nav">
-        <div>
+    <header id="header">
+        <div class="name-header">
             <a href="index.html" class="remove-style"><span class="boxed logo">konatachat</span></a>
         </div>
-    </nav>
+        <!-- <nav id="nav">
+
+        </nav> -->
+    </header>
     <main id="main">
         <div class="chat">
             <div class="tab-list">
-
+                <ul>
+                    <li><a href="#"><span class="highlight">#general</span></a></li>
+                </ul>
             </div>
             <div class="chat-log">
-                <div class="messages">
-
-                </div>
+                <div class="messages"></div>
             </div>
             <div class="input-field">
-
+                <input type="text" id="message-input" placeholder="#general">
+                <button id="send-button">Sen</button>
             </div>
         </div>
         <div class="sidebar">
