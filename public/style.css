@@ -1,0 +1,46 @@
+:root {
+    --background-color: #ffffff;
+    --primary-color: #f6e9e0;
+    --secondary-color: #b6a8a8;
+    --text-color: #292323;
+    --shadow-color: #292323;
+    --light-color: #f6e9e0;
+    --normal-font-size: 16px;
+    --big-font-size: 26px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+    font-family: 'Less Perfect DOS VGA';
+}
+
+.boxed {
+    background-color: var(--secondary-color);
+    border-top: 2px solid var(--light-color);
+    border-right: 2px solid var(--shadow-color);
+    border-bottom: 2px solid var(--shadow-color);
+    border-left: 2px solid var(--light-color);
+    color: var(--text-color);
+}
+
+.logo {
+    font-weight: bold;
+    font-size: var(--big-font-size);
+}
+
+.remove-style {
+    text-decoration: none;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+}
+
+#nav {
+    height: auto;
+    width: 100%;
+}
