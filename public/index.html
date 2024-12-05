@@ -31,15 +31,15 @@
             </div>
         </div>
         <div id="sidebar">
-            <div id="sign-in-form">
+            <div id="sign-in-form" class="sign-form">
                 <h3>Sign in (Coming Soon)</h3>
 
-                <div id="id">
+                <div class="id">
                     <label for="id">konatachat ID</label>
                     <input type="text" id="id" placeholder="id" required>
                 </div>
 
-                <div id="password">
+                <div class="password">
                     <label for="password">Password</label>
                     <input type="password" id="password" placeholder="password" required>
                 </div>
@@ -49,8 +49,32 @@
                     <input type="checkbox" name="staySignedIn" id="staySignedIn">
                     Stay signed in? .3
                 </div>
+                <label for="signup">Dont have a konatachat account?? :(<br><a href="javascript:void(0)" onclick="toggleForms()">Sign up here</a></label>
+            </div>
+            <div id="sign-up-form" class="sign-form" style="display: none;">
+                <h3>Sign up (Coming Soon)</h3>
 
-                <label for="signup">Dont have an account?<br><a href="#">Sign up here</a></label>
+                <div class="username">
+                    <label for="id">your name :)</label>
+                    <input type="text" id="id" placeholder="username" required>
+                </div>
+
+                <div class="email">
+                    <label for="id">Email (Optional)</label>
+                    <input type="text" id="id" placeholder="email" disabled>
+                </div>
+
+                <div class="password">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="1234" required>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="login-btn">Sign in</button>
+                    <input type="checkbox" name="staySignedIn" id="staySignedIn">
+                    Stay signed in? .3
+                </div>
+                <label for="signup">Already have a konatachat account?? :)<br><a href="javascript:void(0)" onclick="toggleForms()">Sign in here</a></label>
             </div>
         </div>
     </main>
