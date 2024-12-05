@@ -36,7 +36,7 @@ function sendMessage() {
             console.error('Error uploading file:', error);
         });
 
-        fileInput = '';
+        fileInput.value = '';
     }
 }
 
