@@ -116,12 +116,24 @@ li {
 }
 
 #chat > .input-field {
+    display: flex;
+    gap: 7px;
     height: auto;
     background-color: var(--light-color);
 }
 
 .message:hover {
     background-color: var(--light-color);
+}
+
+#custom-file-label {
+    cursor: pointer;
+}
+
+#message-input {
+    border: none;
+    background-color: var(--light-color);
+    width: 100%;
 }
 
 #sidebar {
