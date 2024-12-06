@@ -3,6 +3,7 @@ const socket = io();
 const messageInput = document.getElementById('message-input');
 const fileInput = document.getElementById('file-input');
 const messages = document.querySelector('.messages');
+const chatLog = document.querySelector('#chat > .chat-log');
 
 function sendMessage() {
     const message = messageInput.value.trim();
@@ -50,18 +51,18 @@ socket.on('chatMessage', (message) => {
         const fileType = message.fileType;
 
         if (fileType.startsWith('image/')) {
-            messageElement.innerHTML = `<img src="${message.content}" alt="${message.fileName}" width="200"/>`;
+            messageElement.innerHTML = `<img class="img" src="${message.content}" alt="${message.fileName}" width="200"/>`;
         } else if (fileType.startsWith('video/')) {
-            messageElement.innerHTML = `<video controls><source src="${message.content}" type="${fileType}">Your browser does not support the video tag.</video>`;
+            messageElement.innerHTML = `<video class="video" controls><source src="${message.content}" type="${fileType}">Your browser does not support the video tag.</video>`;
         } else if (fileType.startsWith('audio/')) {
-            messageElement.innerHTML = `<audio controls><source src="${message.content}" type="${fileType}">Your browser does not support the audio element.</audio>`;
+            messageElement.innerHTML = `<audio class="audio" controls><source src="${message.content}" type="${fileType}">Your browser does not support the audio element.</audio>`;
         } else {
-            messageElement.innerHTML = `<a href="${message.content}" download="${message.fileName}">Download ${message.fileName}</a>`;
+            messageElement.innerHTML = `<a class="download" href="${message.content}" download="${message.fileName}">Download ${message.fileName}</a>`;
         }
     }
 
     messages.appendChild(messageElement);
-    messages.scrollTop = messages.scrollHeight;
+    chatLog.scrollTop = chatLog.scrollHeight;
 });
 
 messageInput.addEventListener('keydown', (event) => {
