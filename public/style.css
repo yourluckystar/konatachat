@@ -141,7 +141,7 @@
 }
 
 @media (max-width: 1001px) {
-    #sidebar {
+    #sidebar, .sticker {
         display: none;
     }
 }
