@@ -82,6 +82,14 @@
     padding: 7px;
 }
 
+ul {
+    display: inline;
+}
+
+li {
+    list-style: none;
+}
+
 #chat {
     display: flex;
     flex-direction: column;
@@ -96,6 +104,8 @@
 }
 
 #chat > .tab-list {
+    display: flex;
+    justify-content: center;
     height: auto;
     background-color: var(--light-color);
 }
