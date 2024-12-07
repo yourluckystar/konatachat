@@ -38,7 +38,15 @@
 }
 
 .highlight {
-    background-color: var(--highlight-color);
+    background-color: var(--secondary-color);
+}
+
+.indent {
+    border-top: 2px solid var(--secondary-color);
+    border-right: 2px solid var(--background-color);
+    border-bottom: 2px solid var(--background-color);
+    border-left: 2px solid var(--secondary-color);
+    margin: 7px;
 }
 
 .logo {
