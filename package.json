@@ -1,0 +1,21 @@
+{
+  "name": "konatachat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourluckystar/konatachat.git"
+  },
+  "keywords": [],
+  "author": "Your",
+  "license": "GPL-3.0",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yourluckystar/konatachat/issues"
+  },
+  "homepage": "https://github.com/yourluckystar/konatachat#readme"
+}
