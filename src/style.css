@@ -1,0 +1,235 @@
+:root {
+    --light-color: #f1f3f5;
+    --dark-color: #4c4b50;
+    --small-font-size: 12px;
+    --normal-font-size: 16px;
+    --big-font-size: 20px;
+    --huge-font-size: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: var(--normal-font-size);
+    color: var(--light-color);
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.font-huge {
+    font-size: var(--huge-font-size);
+}
+
+.no-decoration {
+    all: unset;
+}
+
+.wrap-word {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.no-display {
+    display: none;
+}
+
+.bg-black {
+    background: black;
+}
+
+.overflow-y {
+    overflow-y: scroll;
+}
+
+.overflow-x {
+    overflow-x: wrap;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.p-1 {
+    padding: 0.25rem;
+}
+
+.p-2 {
+    padding: 0.5rem;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.p-8 {
+    padding: 2rem;
+}
+
+.p-16 {
+    padding: 4rem;
+}
+
+.h-auto {
+    height: auto;
+}
+
+.h-4 {
+    height: 1rem;
+}
+
+.h-8 {
+    height: 2rem;
+}
+
+.h-64 {
+    height: 16rem;
+}
+
+.h-512 {
+    height: 512px;
+}
+
+.h-screen {
+    height: 100vh;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.w-max {
+    max-width: 100%;
+}
+
+.w-4 {
+    width: 1rem;
+}
+
+.w-16 {
+    width: 4rem;
+}
+
+.w-64 {
+    width: 16rem;
+}
+
+.w-128 {
+    width: 128px;
+}
+
+.w-192 {
+    width: 192px;
+}
+
+.w-256 {
+    width: 256px;
+}
+
+.w-386 {
+    width: 386px;
+}
+
+.w-576 {
+    width: 576px;
+}
+
+.w-768 {
+    width: 768px;
+}
+
+.min-w-464px {
+    min-width: 464px;
+}
+
+.bottom-0 {
+    bottom: 0;
+}
+
+.right-0 {
+    right: 0;
+}
+
+.border-light {
+    border-color: gainsboro;
+}
+
+.border-dark {
+    border-color: var(--dark-color);
+}
+
+.border-solid {
+    border-style: solid;
+}
+
+.border-1 {
+    border-width: 1px;
+}
+
+.border-2 {
+    border-width: 2px;
+}
+
+.border-b {
+    border-right: 0;
+    border-left: 0;
+    border-top: 0;
+}
+
+.border-t {
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 0;
+}
+
+.gap-0 {
+    gap: 0;
+}
+
+.gap-1 {
+    gap: 0.25rem;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.gap-3 {
+    gap: 0.75rem;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
