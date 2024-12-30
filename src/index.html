@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>konatachat</title>
+</head>
+<body class="flex flex-col align-center justify-center h-screen bg-black">
+    <main id="main" class="flex h-full w-full gap-4 justify-center">
+        <!-- this will come useful later if i want to make announcements
+        <div class="notice"></div> -->
+        <div class="flex flex-col border-solid border-1 border-dark h-full w-576">
+            <div class="h-8 border-solid border-1 border-dark border-b">
+            </div>
+            <div id="chat" class="flex-grow p-2 overflow-y wrap-word">
+                <div id="messages" class="w-full"></div>
+            </div>
+            <div class="flex p-1 h-8 border-solid border-1 border-dark border-t align-center">
+                <input type="text" id="message-input" placeholder="$" class="no-decoration w-full">
+                <label for="file-input" id="file-label">file</label>
+                <input type="file" id="file-input" class="no-display">
+            </div>
+            <div id="status-bar" class="flex p-1 h-4 border-solid border-1 border-dark border-t"></div>
+        </div>
+
+        <div id="sidebar-right" class="border-solid border-1 border-dark h-full w-256">
+        </div>
+    </main>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
