@@ -48,11 +48,11 @@ socket.on('chatMessage', (message) => {
     messageDiv.classList.add('flex', 'gap-2');
 
     const nameDiv = document.createElement('div');
-    nameDiv.classList.add('name', 'w-max', 'fg-red', 'bold');
+    nameDiv.classList.add('name', 'fg-red', 'bold');
     nameDiv.textContent = name;
 
     const contentDiv = document.createElement('div');
-    contentDiv.classList.add('message-content');
+    contentDiv.classList.add('message-content', 'breakword');
 
     if (typeof message === 'string') {
         contentDiv.textContent = message;
@@ -60,13 +60,13 @@ socket.on('chatMessage', (message) => {
         const fileType = message.fileType;
 
         if (fileType.startsWith('image/')) {
-            contentDiv.innerHTML = `<img class="w-full" src="${message.content}" alt="${message.fileName}"/>`;
+            contentDiv.innerHTML = `<img class="fit-width" src="${message.content}" alt="${message.fileName}"/>`;
         } else if (fileType.startsWith('video/')) {
-            contentDiv.innerHTML = `<video class="h-64 w-64 fit-contain" controls><source src="${message.content}" type="${fileType}">Your browser does not support the video tag.</video>`;
+            contentDiv.innerHTML = `<video class="fit-width fit-contain" controls><source src="${message.content}" type="${fileType}">Your browser does not support the video tag.</video>`;
         } else if (fileType.startsWith('audio/')) {
-            contentDiv.innerHTML = `<audio class="h-64 w-64 fit-contain" controls><source src="${message.content}" type="${fileType}">Your browser does not support the audio element.</audio>`;
+            contentDiv.innerHTML = `<audio class="fit-width fit-contain" controls><source src="${message.content}" type="${fileType}">Your browser does not support the audio element.</audio>`;
         } else {
-            contentDiv.innerHTML = `<a class="h-64 w-64 fit-contain" href="${message.content}" download="${message.fileName}">Download ${message.fileName}</a>`;
+            contentDiv.innerHTML = `<a class="fit-width fit-contain" href="${message.content}" download="${message.fileName}">Download ${message.fileName}</a>`;
         }
     }
     messageDiv.appendChild(nameDiv);
