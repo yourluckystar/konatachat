@@ -18,10 +18,13 @@
 
             </div>
         </aside>
-        <section class="flex flex-col border-solid border-1 border-light h-full w-full">
-            <div class="h-8">
+        <section class="flex flex-col border-solid border-1 border-light w-full">
+            <div class="h-8 border-solid border-1 border-light border-b flex-shrink">
             </div>
-            <div id="chat" class="flex-grow p-2 overflow-y wrap-word">
+            <div id="voice" class="border-solid border-1 border-light border-b h-third w-full bg-whitesmoke flex-shrink">
+
+            </div>
+            <div id="chat" class="flex-grow overflow-y wrap-word">
                 <div id="messages" class="w-full"></div>
             </div>
             <div class="flex p-1 h-8 border-solid border-1 border-light border-t align-center">
@@ -29,7 +32,7 @@
                 <label for="file-input" id="file-label">file</label>
                 <input type="file" id="file-input" class="no-display">
             </div>
-            <div id="status-bar" class="flex p-1 h-4 border-solid border-1 border-light border-t"></div>
+            <div id="status-bar" class="flex p-1 h-4 border-dashed border-1 border-light border-t"></div>
         </section>
     </main>
     <script src="/socket.io/socket.io.js"></script>

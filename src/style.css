@@ -58,6 +58,10 @@
     flex-grow: 1;
 }
 
+.flex-shrink {
+    flex-shrink: 0;
+}
+
 .justify-center {
     justify-content: center;
 }
@@ -92,6 +96,9 @@
     display: none;
 }
 
+.bg-whitesmoke {
+    background: whitesmoke;
+}
 .bg-white {
     background: white;
 }
@@ -154,6 +161,10 @@
 
 .h-screen {
     height: 100vh;
+}
+
+.h-third {
+    height: 33%;
 }
 
 .h-full {
@@ -229,6 +240,10 @@
     border-style: solid;
 }
 
+.border-dashed {
+    border-style: dashed;
+}
+
 .border-1 {
     border-width: 1px;
 }
@@ -276,5 +291,5 @@
 }
 
 .server-message {
-    background: rgb(235, 235, 130);
+    background: lightyellow;
 }
