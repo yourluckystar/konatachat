@@ -8,6 +8,7 @@
 }
 
 * {
+    color: whitesmoke;
     padding: 0;
     margin: 0;
     font-family: sans-serif;
@@ -96,9 +97,6 @@
     display: none;
 }
 
-.bg-whitesmoke {
-    background: whitesmoke;
-}
 .bg-white {
     background: white;
 }
@@ -164,7 +162,11 @@
 }
 
 .h-third {
-    height: 33%;
+    min-height: 33%;
+}
+
+.wmax-1000 {
+    max-width: 1000px;
 }
 
 .h-full {
@@ -303,5 +305,5 @@
 }
 
 .server-message {
-    background: lightyellow;
+    background: #272115;
 }

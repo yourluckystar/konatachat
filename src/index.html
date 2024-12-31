@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="style.css">
     <title>konatachat</title>
 </head>
-<body class="flex flex-col h-screen bg-white">
-    <main id="main" class="flex h-full gap-2 ml-30 mr-30">
+<body class="flex flex-col h-screen bg-black">
+    <main id="main" class="flex h-full wmax-1000 ml-30 mr-30">
         <!-- this will come useful later if i want to make announcements
         <div class="notice"></div> -->
         <aside id="sidebar-right" class="h-full w-346">
@@ -18,21 +18,21 @@
 
             </div>
         </aside>
-        <section class="flex flex-col border-solid border-1 border-light w-full">
-            <div class="h-8 border-solid border-1 border-light border-b flex-shrink">
+        <section class="flex flex-col border-solid border-1 border-dark w-full">
+            <div class="h-8 border-solid border-1 border-dark border-b flex-shrink">
             </div>
-            <div id="voice" class="border-solid border-1 border-light border-b h-third w-full bg-whitesmoke flex-shrink">
+            <div id="voice" class="border-solid border-1 border-dark border-b h-third w-full bg-blacksmoke flex-shrink">
 
             </div>
             <div id="chat" class="flex-grow overflow-y wrap-word">
                 <div id="messages" class="w-full"></div>
             </div>
-            <div class="flex p-1 h-8 border-solid border-1 border-light border-t align-center">
+            <div class="flex p-1 h-8 border-solid border-1 border-dark border-t align-center">
                 <input type="text" id="message-input" placeholder="$" class="no-decoration w-full">
                 <label for="file-input" id="file-label">file</label>
                 <input type="file" id="file-input" class="no-display">
             </div>
-            <div id="status-bar" class="flex p-1 h-4 border-dashed border-1 border-light border-t"></div>
+            <div id="status-bar" class="flex p-1 h-4 border-dashed border-1 border-dark border-t flex-shrink"></div>
         </section>
     </main>
     <script src="/socket.io/socket.io.js"></script>
