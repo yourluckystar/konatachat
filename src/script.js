@@ -41,67 +41,28 @@ function sendMessage() {
     }
 }
 
-function formatDistanceToNow(epoch) {
-    const now = Date.now();
-    const diff = now - epoch;
+function getCurrentTime24HourFormat() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
 
-    const seconds = Math.floor(diff / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-    const weeks = Math.floor(days / 7);
-    const months = Math.floor(days / 30);
-    const years = Math.floor(months / 12);
-
-    let timeAgo = '';
-
-    if (minutes < 1) {
-        timeAgo = 'now';
-    }
-    else if (years > 0) {
-        timeAgo = years + 'y';
-    }
-    else if (months > 0) {
-        timeAgo = months + 'mo';
-    }
-    else if (weeks > 0) {
-        timeAgo = weeks + 'w';
-    }
-    else if (days > 0) {
-        timeAgo = days + 'd';
-    }
-    else if (hours > 0) {
-        timeAgo = hours + 'h';
-    }
-    else if (minutes > 0) {
-        timeAgo = minutes + 'm';
-    }
-
-    return timeAgo;
-}
-
-function updateMessageTimestamp(timestampElement, timestamp) {
-    timestampElement.textContent = formatDistanceToNow(timestamp);
-    
-    setInterval(() => {
-        timestampElement.textContent = formatDistanceToNow(timestamp);
-    }, 60000);
+    return `${hours}:${minutes}`;
 }
 
 socket.on('chatMessage', (data) => {
-    const { sender, name, message, timestamp } = data;
+    const { sender, name, message } = data;
 
-    const validTimestamp = !isNaN(timestamp) && timestamp > 0 ? timestamp : Date.now();
+    const validTimestamp = getCurrentTime24HourFormat();
 
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('flex', 'gap-2');
 
     const timestampDiv = document.createElement('div');
-    timestampDiv.classList.add('timestamp', 'fg-gray', 'w-12');
-    updateMessageTimestamp(timestampDiv, validTimestamp);
+    timestampDiv.classList.add('timestamp', 'fg-gray');
+    timestampDiv.textContent = validTimestamp;
 
     const nameDiv = document.createElement('div');
-    nameDiv.classList.add('name', 'fg-red', 'bold', 'w-32');
+    nameDiv.classList.add('name', 'fg-red', 'bold');
     nameDiv.textContent = name;
 
     const contentDiv = document.createElement('div');
