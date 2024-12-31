@@ -284,6 +284,11 @@
     border-bottom: 0;
 }
 
+.border-lr {
+    border-top: 0;
+    border-bottom: 0;
+}
+
 .gap-0 {
     gap: 0;
 }
