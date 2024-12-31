@@ -8,7 +8,6 @@
 }
 
 * {
-    color: whitesmoke;
     padding: 0;
     margin: 0;
     font-family: sans-serif;
@@ -310,5 +309,5 @@
 }
 
 .server-message {
-    background: #272115;
+    background: lightyellow;
 }
