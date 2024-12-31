@@ -46,14 +46,28 @@ app.use((req, res, next) => {
 });
 
 io.on('connection', (socket) => {
-    io.emit('chatMessage', 'someone joined the room');
+    const serverName = 'SYSTEM:';
+
+    io.emit('chatMessage', {
+        sender: 'server',
+        name: serverName,
+        message: 'someone joined the room'
+    });
 
     socket.on('chatMessage', (message) => {
-        io.emit('chatMessage', message);
+        io.emit('chatMessage', {
+            sender: 'user',
+            name: 'ame@KAngel',
+            message: message
+        });
     });
 
     socket.on('disconnect', () => {
-        io.emit('chatMessage', 'someone left the room');
+        io.emit('chatMessage', {
+            sender: 'server',
+            name: serverName,
+            message: 'someone left the room'
+        });
     });
 });
 

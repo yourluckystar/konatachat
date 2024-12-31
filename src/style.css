@@ -274,3 +274,7 @@
 .gap-4 {
     gap: 1rem;
 }
+
+.server-message {
+    background: rgb(235, 235, 130);
+}

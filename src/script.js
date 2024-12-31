@@ -41,8 +41,8 @@ function sendMessage() {
     }
 }
 
-socket.on('chatMessage', (message) => {
-    const name = 'ame@KAngel';
+socket.on('chatMessage', (data) => {
+    const { sender, name, message } = data;
 
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('flex', 'gap-2');
@@ -69,6 +69,11 @@ socket.on('chatMessage', (message) => {
             contentDiv.innerHTML = `<a class="fit-width fit-contain" href="${message.content}" download="${message.fileName}">Download ${message.fileName}</a>`;
         }
     }
+
+    if (sender === 'server') {
+        messageDiv.classList.add('server-message');
+    }
+
     messageDiv.appendChild(nameDiv);
     messageDiv.appendChild(contentDiv);
 
