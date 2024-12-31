@@ -97,7 +97,7 @@ socket.on('chatMessage', (data) => {
     messageDiv.classList.add('flex', 'gap-2');
 
     const timestampDiv = document.createElement('div');
-    timestampDiv.classList.add('timestamp', 'fg-gray', 'w-8');
+    timestampDiv.classList.add('timestamp', 'fg-gray', 'w-12');
     updateMessageTimestamp(timestampDiv, validTimestamp);
 
     const nameDiv = document.createElement('div');
