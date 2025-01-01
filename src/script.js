@@ -49,6 +49,22 @@ function getCurrentTime24HourFormat() {
     return `${hours}:${minutes}`;
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    if ("Notification" in window) {
+        Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
+                console.log("notifications enabled!!");
+            } else {
+                console.log("no notifications for you >:(");
+            }
+        }).catch(err => {
+            console.log("there was an error trying to enable notifications :(", err);
+        });
+    } else {
+        console.log("your browser doesnt support notifications sorry :(");
+    }
+});
+
 socket.on('chatMessage', (data) => {
     const { sender, name, message } = data;
 
@@ -95,6 +111,18 @@ socket.on('chatMessage', (data) => {
     messages.appendChild(messageDiv);
 
     chatLog.scrollTop = chatLog.scrollHeight;
+
+    if (Notification.permission === "granted") {
+        if (!document.hasFocus()) {
+            const notification = new Notification(`${name}`, {
+                body: message,
+            });
+
+            notification.onclick = () => {
+                window.focus();
+            };
+        }
+    }
 });
 
 messageInput.addEventListener('keydown', (event) => {
