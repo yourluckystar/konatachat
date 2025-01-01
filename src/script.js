@@ -55,18 +55,18 @@ socket.on('chatMessage', (data) => {
     const validTimestamp = getCurrentTime24HourFormat();
 
     const messageDiv = document.createElement('div');
-    messageDiv.classList.add('flex', 'gap-2');
+    messageDiv.classList.add('flex', 'gap-1', 'align-center');
 
     const timestampDiv = document.createElement('div');
-    timestampDiv.classList.add('timestamp', 'fg-gray');
+    timestampDiv.classList.add('timestamp', 'fg-darkgray', 'small-font');
     timestampDiv.textContent = validTimestamp;
 
     const nameDiv = document.createElement('div');
-    nameDiv.classList.add('name', 'fg-red', 'bold');
+    nameDiv.classList.add('name', 'small-font', 'fg-purple', 'font-bold');
     nameDiv.textContent = name;
 
     const contentDiv = document.createElement('div');
-    contentDiv.classList.add('message-content', 'breakword');
+    contentDiv.classList.add('message-content', 'small-font', 'breakword');
 
     if (typeof message === 'string') {
         contentDiv.textContent = message;

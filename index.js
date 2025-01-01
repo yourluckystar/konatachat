@@ -46,7 +46,7 @@ app.use((req, res, next) => {
 });
 
 io.on('connection', (socket) => {
-    const serverName = 'SYSTEM:';
+    const serverName = '?';
 
     io.emit('chatMessage', {
         sender: 'server',
