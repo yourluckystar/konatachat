@@ -91,7 +91,14 @@ function sendMessage() {
         .then(response => response.json())
         .then(data => {
             if (data.fileUrl) {
-                socket.emit('chatMessage', messageData);
+                socket.emit('chatMessage', {
+                    sender: 'ame',
+                    type: 'file',
+                    content: data.fileUrl,
+                    fileName: file.name,
+                    fileType: file.type,
+                    messageId
+                });
             }
         })
         .catch(error => {
