@@ -4,9 +4,7 @@
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    font-size: 14px;
+    /* font-size: 14px; */
     font-family: sans-serif;
 }
 
@@ -38,15 +36,15 @@
 }
 
 .small-font {
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .normal-font {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .font-big {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 
 .nowrap {
@@ -197,7 +195,7 @@
 }
 
 .h-screen {
-    height: 100vh;
+    height: calc(100vh - 16px);
 }
 
 .h-third {

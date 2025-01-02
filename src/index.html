@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="flex flex-col h-screen">
-    <header class="flex flex-col h-32 bg-lightblue flex-shrink">
+    <header class="flex flex-col h-auto flex-shrink">
         <div id="name" class="">
             <a href="/" class="font-bold font-big">konatachat</a>
         </div>
         <nav id="nav">
-            <menu class="">
+            <menu class="no-decoration">
                 <li>
                     <a href="/signin">Sign in</a>
                 </li>
             </menu>
         </nav>
     </header>
-    <main id="main" class="flex gap-4 flex-grow ml-30 mr-30">
+    <main id="main" class="flex gap-4 flex-grow ml-30 mr-30 overflow-y">
         <aside id="sidebar" class="h-full w-277">
             <p>konatachat</p>
         </aside>
@@ -30,7 +30,7 @@
             <aside id="stream" class="bg-whitesmoke h-third flex-shrink">
                 <p>stream area</p>
             </aside>
-            <aside id="chat" class="flex-grow overflow-y wrap-word">
+            <aside id="chat" class="h-full overflow-y wrap-word">
                 <div id="messages" class="flex flex-col gap-1"></div>
             </aside>
             <aside id="input" class="bg-whitesmoke flex p-1 h-8 align-center">
