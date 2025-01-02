@@ -21,6 +21,14 @@
     }
 }
 
+.pending {
+    opacity: 0.5;
+}
+
+.bg-lightblue {
+    background: lightcyan;
+}
+
 .fg-darkgray {
     color: darkgray;
 }
@@ -37,8 +45,8 @@
     font-size: 1.1rem;
 }
 
-.big-font {
-    font-size: 1.2rem;
+.font-big {
+    font-size: 1.5rem;
 }
 
 .nowrap {
@@ -248,8 +256,8 @@
     width: 192px;
 }
 
-.w-256 {
-    width: 256px;
+.w-277 {
+    width: 277px;
 }
 
 .w-346 {

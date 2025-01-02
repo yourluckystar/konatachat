@@ -46,26 +46,32 @@ app.use((req, res, next) => {
 });
 
 io.on('connection', (socket) => {
-    const serverName = '?';
-
     io.emit('chatMessage', {
-        sender: 'server',
-        name: serverName,
+        type: 'server',
         message: 'someone joined the room'
     });
 
-    socket.on('chatMessage', (message) => {
+    socket.on('chatMessage', (data) => {
+        const { messageId, sender, message, timestamp, type, content, fileName, fileType } = data;
+
+        let responseMessage = message;
+
         io.emit('chatMessage', {
-            sender: 'user',
-            name: 'ame@KAngel',
-            message: message
+            messageId,
+            sender,
+            name: sender,
+            message: responseMessage,
+            timestamp: timestamp,
+            type: type || 'text',
+            content: content,
+            fileName: fileName,
+            fileType: fileType
         });
     });
 
     socket.on('disconnect', () => {
         io.emit('chatMessage', {
-            sender: 'server',
-            name: serverName,
+            type: 'server',
             message: 'someone left the room'
         });
     });
