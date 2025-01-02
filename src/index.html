@@ -6,7 +6,7 @@
     <title>konatachat</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="flex flex-col h-screen">
+<body class="flex flex-col h-screen gap-4">
     <header class="flex flex-col h-auto flex-shrink">
         <div id="name" class="">
             <a href="/" class="font-bold font-big">konatachat</a>
@@ -23,22 +23,22 @@
         <!-- <aside id="sidebar" class="h-full w-277">
             <p>konatachat</p>
         </aside> -->
-        <section class="flex flex-col w-full">
-            <aside id="room-info" class="h-8 flex-shrink">
+        <section class="flex flex-col w-277">
+            <!-- <aside id="room-info" class="h-8 flex-shrink">
 
-            </aside>
+            </aside> -->
             <aside id="stream" class="bg-whitesmoke h-third flex-shrink" style="display: none;">
                 <p>stream area</p>
             </aside>
-            <aside id="chat" class="h-full overflow-y wrap-word">
+            <aside id="chat" class="border-solid border-1 border-light border-b h-full overflow-y wrap-word">
                 <div id="messages" class="flex flex-col gap-1"></div>
             </aside>
-            <aside id="input" class="bg-whitesmoke flex p-1 h-8 align-center">
+            <aside id="input" class="border-solid border-1 border-light border-lr h-auto flex p-1 align-center small-font">
                 <input type="text" id="message-input" placeholder="$" class="no-decoration w-full">
                 <label for="file-input" id="file-label">FILE</label>
                 <input type="file" id="file-input" class="no-display">
             </aside>
-            <aside id="status-bar" class="p-1 h-4 flex-shrink">
+            <aside id="status-bar" class="border-dashed border-1 border-light border-t h-4 flex-shrink">
 
             </aside>
         </section>
