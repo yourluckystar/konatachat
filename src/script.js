@@ -153,9 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-messageInput.addEventListener('keydown', (event) => {
-    if (event.key == 'Enter') {
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
         sendMessage();
+    } else if (event.key === 't') {
+        messageInput.focus();
+        event.preventDefault();
     }
 });
 
