@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         sendMessage();
-    } else if (event.key === 't') {
+    } else if (event.key === 't' && document.activeElement !== messageInput) {
         messageInput.focus();
         event.preventDefault();
     }
