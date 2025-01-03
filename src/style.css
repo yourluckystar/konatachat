@@ -31,6 +31,14 @@
     color: darkgray;
 }
 
+.fg-highlight {
+    color: deepskyblue;
+}
+
+.fg-green {
+    color: limegreen;
+}
+
 .font-bold {
     font-weight: 500;
 }
@@ -162,6 +170,10 @@
     padding: 1rem;
 }
 
+.pl-2 {
+    padding-left: 0.5rem;
+}
+
 .p-8 {
     padding: 2rem;
 }
@@ -264,7 +276,7 @@
 
 .fit-width {
     max-width: 100%;
-    height: auto !important;
+    max-height: 45rem !important;
 }
 
 .w-692 {
@@ -348,6 +360,10 @@
 
 .gap-4 {
     gap: 1rem;
+}
+
+.gap-16 {
+    gap: 4rem;
 }
 
 .server-message {
