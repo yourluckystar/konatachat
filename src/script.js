@@ -102,7 +102,18 @@ function sendMessage() {
             }
         })
         .catch(error => {
-            console.error('Error uploading file:', error);
+            console.error('error uploading file:', error);
+            const messageData = {
+                sender: 'ame',
+                message: 'error uploading file: ' + error,
+                timestamp: getCurrentTime24HourFormat(),
+                type: 'error',
+                fileName: file.name,
+                fileType: file.type,
+                messageId
+            };
+
+            appendMessage(messageData, false);
         });
 
         fileInput.value = '';
