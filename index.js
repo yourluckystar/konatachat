@@ -56,6 +56,14 @@ app.use((req, res, next) => {
     res.status(404).sendFile(path.join(__dirname, 'src', '404.html'));
 });
 
+app.use((req, res, next) => {
+    res.setTimeout(3600000, () => {
+        console.log('timed out.');
+        res.status(408).send('timed out');
+    });
+    next();
+});
+
 io.on('connection', (socket) => {
     io.emit('chatMessage', {
         type: 'server',
