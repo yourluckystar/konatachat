@@ -19,6 +19,14 @@ function createMessageElement({ sender, message, timestamp, type, content, fileN
     const contentDiv = document.createElement('div');
     contentDiv.classList.add('message-content', 'small-font', 'breakword');
 
+    function convertUrlsToLinks(text) {
+        const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+        return text.replace(urlRegex, (url) => {
+            return `<a href="${url}" target="_blank">${url}</a>`
+        })
+    }
+
     if (type === 'file') {
         console.log(fileType);
         if (fileType.startsWith('image/')) {
@@ -31,7 +39,7 @@ function createMessageElement({ sender, message, timestamp, type, content, fileN
             contentDiv.innerHTML = `<a class="fit-width fit-contain" href="${content}" download="${fileName}">${fileName}</a>`;
         }
     } else {
-        contentDiv.textContent = message;
+        contentDiv.innerHTML = convertUrlsToLinks(message);
     }
 
     if (type === 'server') {
