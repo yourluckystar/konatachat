@@ -11,18 +11,44 @@
         <div id="name" class="">
             <a href="/" class="font-bold font-big">konatachat</a>
         </div>
-        <nav id="nav">
+        <nav id="nav" class="">
             <menu class="no-decoration">
                 <li>
-                    <a href="/signin">Sign in</a>
+                    <a href="/signin">sign in</a>
                 </li>
             </menu>
         </nav>
     </header>
     <main id="main" class="flex gap-4 flex-grow overflow-y">
-        <!-- <aside id="sidebar" class="h-full w-277">
-            <p>konatachat</p>
-        </aside> -->
+        <aside id="sidebar" class="flex flex-col h-full w-277 gap-4 small-font">
+            <div>
+                <strong>online members</strong>
+                <ul class="no-decoration">
+                    <li class="">someone1</li>
+                    <li class="">someone2</li>
+                </ul>
+            </div>
+            <div>
+                <strong>global stats</strong>
+                <ul class="no-decoration">
+                    <!-- placeholder stats xd -->
+                    <li class="">wotd: xd</li>
+                    <li class="">total messages: 239756</li>
+                    <li class="">total media: 12453</li>
+                    <li class="">vc time: 71 days</li>
+                    <li class="">accounts: 2</li>
+                    <li class="">deletions: 235</li>
+                    <li class="">stored size: 2.8TB</li>
+                </ul>
+            </div>
+            <div>
+                <strong>links</strong>
+                <ul class="no-decoration">
+                    <li class=""><a href="https://github.com/yourluckystar/konatachat">source code</a></li>
+                    <li class=""><a href="/"></a></li>
+                </ul>
+            </div>
+        </aside>
         <section class="flex flex-col w-full">
             <!-- <aside id="room-info" class="h-8 flex-shrink">
 
@@ -44,6 +70,9 @@
         </section>
     </main>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="scripts/chat.js"></script>
+    <script type="module" src="scripts/utils.js"></script>
+    <script type="module" src="scripts/file-upload.js"></script>
+    <script type="module" src="scripts/notifications.js"></script>
 </body>
 </html>
