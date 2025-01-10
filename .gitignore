@@ -2,3 +2,7 @@ node_modules
 package-lock.json
 todo.txt
 .env
+
+# temporary self-signed
+localhost.crt
+localhost.key
