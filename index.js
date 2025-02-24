@@ -18,7 +18,7 @@ const server = create_https_server(options, paths, routes);
 const wss = websocket.create_websocket_server(server);
 
 wss.on('connection', (ws, req) => {
-    websocket.handle_connection(ws, req)
+    websocket.handle_connection(ws, req, wss);
 });
 
 wss.on('message', async (ws, message) => {
@@ -27,7 +27,7 @@ wss.on('message', async (ws, message) => {
 });
 
 wss.on('close', (ws) => {
-    websocket.handle_disconnect(ws, wss)
+    websocket.handle_disconnect(ws, wss);
 });
 
 // use this later for sessions maybe?
