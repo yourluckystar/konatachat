@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>sign in!!</title>
+</head>
+<body class="flex flex-col h-screen gap-4">
+    <strong><a href="/">konatachat</a></strong>
+    <form id="signin-form" class="flex flex-col gap-4 w-64">
+        <input type="text" id="id" placeholder="your id" autofocus>
+        <input type="email" id="email" placeholder="mail (coming later)" disabled>
+        <input type="password" id="password" placeholder="password" required>
+        <input type="password" id="2fa" placeholder="2fa code (coming later)" disabled>
+        <button type="submit">sign in</button>
+        <p>dont have a konatachat account? <a href="signup.html" id="show-signup">sign up here</a></p>
+    </form>
+</body>
+<script>
+    const form = document.getElementById('signin-form');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const id = document.getElementById('id').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const data = { id, email, password };
+
+        try {
+            const response = await fetch('/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+            const result = await response.json();
+
+            if (response.ok) {
+                window.location.href = '/index.html';
+            } else {
+                alert(`sign in failed ${response.error}`);
+            }
+        } catch (error) {
+            console.error('error while signing in', error);
+            alert('error while signing in');
+        }
+    });
+</script>
+</html>
