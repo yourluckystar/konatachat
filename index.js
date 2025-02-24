@@ -1,99 +1,38 @@
-const express = require('express');
-const multer = require('multer');
-const socket = require('socket.io');
-const path = require('path');
-const https = require('https');
-const fs = require('fs');
-const crypto = require('crypto');
+import dotenv from 'dotenv';
+import fs from 'fs';
+import { create_https_server } from './libs/https.js';
+import * as websocket from './libs/websocket.js';
+// import { check_session } from './libs/session.js';
+// import { get_stats } from './libs/sidebar.js';
 
-const app = express();
+dotenv.config();
+
 const options = {
-    key: fs.readFileSync(path.join(__dirname, 'localhost.key')),
-    cert: fs.readFileSync(path.join(__dirname, 'localhost.crt')),
+    key: fs.readFileSync('localhost.key'),
+    cert: fs.readFileSync('localhost.crt'),
 };
+const paths = ['/index.html', '/media', '/recent_messages'];
+const routes = ['/signup', '/signin', '/recent_messages'];
 
-const server = https.createServer(options, app);
-const io = socket(server);
+const server = create_https_server(options, paths, routes);
+const wss = websocket.create_websocket_server(server);
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const uploadDir = path.join(__dirname, 'uploads');
-        if (!fs.existsSync(uploadDir)) {
-            fs.mkdirSync(uploadDir, {recursive: true});
-        }
-        cb(null, uploadDir);
-    },
-    filename: (req, file, cb) => {
-        const randomName = crypto.randomBytes(16).toString('hex');
-        const extension = path.extname(file.originalname);
-        const uniqueFilename = randomName + extension;
-        cb(null, uniqueFilename);
-    }
+wss.on('connection', (ws, req) => {
+    websocket.handle_connection(ws, req)
 });
 
-const upload = multer({
-    storage,
-    limits: { fileSize: 1024 * 1024 * 1024 },
+wss.on('message', async (ws, message) => {
+    const data = await websocket.handle_message(ws, message);
+    if (data) websocket.broadcast_message(wss, data, ws);
 });
 
-app.use(express.json({ limit: '1gb' }));
-app.use(express.urlencoded({ limit: '1gb', extended: true }));
-
-app.post('/upload', upload.single('file'), (req, res) => {
-    if (req.file) {
-        const fileUrl = `/uploads/${req.file.filename}`;
-        res.json({ fileUrl });
-    } else {
-        res.status(400).json({ error: 'no file uploaded' });
-    }
+wss.on('close', (ws) => {
+    websocket.handle_disconnect(ws, wss)
 });
 
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// use this later for sessions maybe?
+wss.on('pong', (ws) => handle_pong());
 
-app.use(express.static(path.join(__dirname, 'src')));
-
-app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname, 'src', '404.html'));
-});
-
-app.use((req, res, next) => {
-    res.setTimeout(3600000, () => {
-        console.log('timed out.');
-        res.status(408).send('timed out');
-    });
-    next();
-});
-
-io.on('connection', (socket) => {
-    io.emit('chatMessage', {
-        type: 'server',
-        message: 'someone joined the room'
-    });
-
-    socket.on('chatMessage', (data) => {
-        const { messageId, sender, message, timestamp, type, content, fileName, fileType } = data;
-
-        io.emit('chatMessage', {
-            messageId,
-            sender,
-            name: sender,
-            message: message,
-            timestamp: timestamp,
-            type: type || 'text',
-            content: content,
-            fileName: fileName,
-            fileType: fileType
-        });
-    });
-
-    socket.on('disconnect', () => {
-        io.emit('chatMessage', {
-            type: 'server',
-            message: 'someone left the room'
-        });
-    });
-});
-
-server.listen(11945, () => {
-    console.log('Server started at https://localhost:11945');
-});
+server.listen(process.env.PORT, () => {
+    console.log('server started on https://localhost:11945');
+})
