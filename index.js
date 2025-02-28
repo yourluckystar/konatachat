@@ -11,7 +11,7 @@ const options = {
     key: fs.readFileSync('localhost.key'),
     cert: fs.readFileSync('localhost.crt'),
 };
-const paths = ['/index.html', '/media', '/recent_messages'];
+const paths = ['/index.html', '/files', '/recent_messages'];
 const routes = ['/signup', '/signin', '/recent_messages'];
 
 const server = create_https_server(options, paths, routes);
