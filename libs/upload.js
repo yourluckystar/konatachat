@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 export const save_files = async (files) => {
     const files_arr = Object.values(files);
-    const file_path = path.join(__dirname, 'media');
+    const file_path = path.join(__dirname, 'files');
     const saved_paths = [];
 
     for (const file of files_arr) {
