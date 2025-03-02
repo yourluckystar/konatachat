@@ -15,23 +15,7 @@ const paths = ['/index.html', '/files', '/recent_messages'];
 const routes = ['/signup', '/signin', '/recent_messages'];
 
 const server = create_https_server(options, paths, routes);
-const wss = websocket.create_websocket_server(server);
-
-wss.on('connection', (ws, req) => {
-    websocket.handle_connection(ws, req, wss);
-});
-
-wss.on('message', async (ws, message) => {
-    const data = await websocket.handle_message(ws, message);
-    if (data) websocket.broadcast_message(wss, data, ws);
-});
-
-wss.on('close', (ws) => {
-    websocket.handle_disconnect(ws, wss);
-});
-
-// use this later for sessions maybe?
-wss.on('pong', (ws) => handle_pong());
+websocket.create_websocket_server(server);
 
 server.listen(process.env.PORT, () => {
     console.log('server started on https://localhost:11945');
