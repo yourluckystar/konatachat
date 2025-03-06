@@ -6,73 +6,134 @@
     <title>konatachat</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="flex flex-col h-screen gap-4">
-    <header class="flex flex-col h-auto flex-shrink">
-        <div id="name" class="">
-            <a href="/" class="font-bold font-big">konatachat</a>
-        </div>
-        <nav id="nav" class="">
-            <menu class="no-decoration">
-                <li>
-                    <a href="/signin">sign in</a>
-                </li>
-            </menu>
-        </nav>
-    </header>
-    <main id="main" class="flex gap-4 flex-grow overflow-y">
-        <aside id="sidebar" class="flex flex-col h-full w-277 gap-4 small-font">
-            <div>
-                <strong>online members</strong>
-                <ul class="no-decoration">
-                    <li class="">someone1</li>
-                    <li class="">someone2</li>
-                </ul>
+<body class="drag-area">
+    <div class="container">
+        <aside id="sidebar-left">
+            <div class="box">
+                <div class="box-content">
+                    <strong>rooms</strong>
+                    <ul id="rooms-list">
+                        <!-- rooms show up here .3 -->
+                        <li>you are not in any rooms</li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <strong>global stats</strong>
-                <ul class="no-decoration">
-                    <!-- placeholder stats xd -->
-                    <li class="">wotd: xd</li>
-                    <li class="">total messages: 239756</li>
-                    <li class="">total media: 12453</li>
-                    <li class="">vc time: 71 days</li>
-                    <li class="">accounts: 2</li>
-                    <li class="">deletions: 235</li>
-                    <li class="">stored size: 2.8TB</li>
-                </ul>
+            <div class="box">
+                <div class="box-content">
+                    <strong>global stats</strong>
+                    <ul id="global-stats-list">
+                        <!-- stats here xd -->
+                    </ul>
+                </div>
+                <div class="box-content">
+                    <p><strong>commands</strong> (coming later)</p>
+                    <ul id="commands-list">
+                        <li>/invite [user_id] [room_id]</li>
+                        <li>/join [room]</li>
+                        <li>/leave [room]</li>
+                        <li>/msg [room_id] [mesage]</li>
+                        <li>/w [user_id] [message]</li>
+                        <li>/list</li>
+                        <li>/me [message]</li>
+                        <li>/nick [name]</li>
+                        <li>/ping</li>
+                        <li>/whois [user_id]</li>
+                        <li>/leave [room]</li>
+                        <li>/mood [status]</li>
+                        <li>/dark</li>
+                        <li>/help</li>
+                    </ul>
+                </div>
             </div>
+            <span class="span-height"></span>
             <div>
                 <strong>links</strong>
-                <ul class="no-decoration">
-                    <li class=""><a href="https://github.com/yourluckystar/konatachat">source code</a></li>
-                    <li class=""><a href="/"></a></li>
+                <ul>
+                    <li><a href="https://github.com/yourluckystar/konatachat">source code .3</a></li>
                 </ul>
             </div>
         </aside>
-        <section class="flex flex-col w-full">
-            <!-- <aside id="room-info" class="h-8 flex-shrink">
-
-            </aside> -->
-            <aside id="stream" class="bg-whitesmoke h-third flex-shrink" style="display: none;">
-                <p>stream area</p>
-            </aside>
-            <aside id="chat" class="border-solid border-1 border-light border-b h-full overflow-y wrap-word">
-                <div id="messages" class="flex flex-col gap-1"></div>
-            </aside>
-            <aside id="input" class="border-solid border-1 border-light border-lr h-auto flex p-1 align-center small-font">
-                <input type="text" id="message-input" placeholder="$" class="no-decoration w-full">
-                <label for="file-input" id="file-label">FILE</label>
-                <input type="file" id="file-input" class="no-display">
-            </aside>
-            <aside id="status-bar" class="border-dashed border-1 border-light border-t h-4 flex-shrink">
-
-            </aside>
+        <section id="content">
+            <!-- <div id="stream">
+                TODO
+            </div> -->
+            <div id="chat">
+                <div id="messages">
+                    <template id="message-template">
+                        <div class="message">
+                            <div class="timestamp"></div>
+                            <div class="message-content">
+                                <div style="display: flex;">
+                                    <div class="icon"></div>
+                                    <div class="sender"></div>
+                                    <div class="content"></div>
+                                </div>
+                                <div class="files"></div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                <div id="dummy-bottom"></div>
+                <div class="spacer"></div>
+            </div>
+            <div class="input-container">
+                <div id="input">
+                    <div id="file-preview"></div>
+                    <div>
+                        <input type="text" name="" id="message-input" placeholder="_">
+                        <label for="file-input">FILE</label>
+                        <input type="file" name="" id="file-input" multiple>
+                    </div>
+                </div>
+                <div id="status-bar">
+                    <p id="typing"></p>
+                </div>
+            </div>
         </section>
-    </main>
-    <script src="/socket.io/socket.io.js"></script>
-    <script type="module" src="scripts/chat.js"></script>
-    <script type="module" src="scripts/utils.js"></script>
-    <script type="module" src="scripts/file-upload.js"></script>
-    <script type="module" src="scripts/notifications.js"></script>
+        <aside id="sidebar-right">
+            <header>
+                <a href="/">konatachat</a>
+            </header>
+            <div class="box">
+                <div class="box-content profile-card">
+                    <strong>card</strong>
+                    <div>
+                        <p>username</p>
+                        <p>id</p>
+                    </div>
+                    <a href="#">sign out</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-content room-members">
+                    <p><strong>room members</strong> (coming later)</p>
+                    <ul>
+                        <!--  -->
+                    </ul>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-content message-metadata">
+                    <strong>metadata</strong>
+                    <ul>
+                        <li>content</li>
+                        <li>created</li>
+                        <li>updated</li>
+                        <li>sender</li>
+                        <li>attachments</li>
+                        <li>size</li>
+                        <li>width</li>
+                        <li>height</li>
+                        <li><a href="#">copy message url</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="span-height"></div>
+            <div id="picture">
+                <img src="assets/kurumi.png" alt="">
+            </div>
+        </aside>
+    </div>
+    <script type="module" src="scripts/main.js"></script>
 </body>
 </html>
