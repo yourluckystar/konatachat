@@ -68,23 +68,19 @@ export const clear_session = async () => {
 };
 
 // i have no clue how else i could get session data to socket so i guess i have to do it this way ;/
-export async function check_session(req, socket) {
+export async function check_session(req, ws) {
     try {
         let cookies;
-        if (req) {
-            cookies = parse_cookies(req.headers.cookie);
-        } else if (socket) {
-            cookies = parse_cookies(socket.request.headers.cookie);
-        }
+        cookies = parse_cookies(req.headers.cookie);
 
         const session = cookies.session;
 
         const session_data = await get_session(session);
         if (!session_data) return false;
 
-        if (socket) {
-            socket.user = session_data.user;
-            socket.username = session_data.username;
+        if (ws) {
+            ws.user = session_data.user;
+            ws.username = session_data.username;
         }
 
         return true;
