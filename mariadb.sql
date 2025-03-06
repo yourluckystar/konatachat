@@ -10,7 +10,7 @@ CREATE TABLE users (
 CREATE TABLE user_settings (
     user INT PRIMARY KEY,
     icon VARCHAR(255) NULL,
-    FOREIGN KEY (user) REFERENCES users(id) ON DELETE CASCADE
+    FOREIGN KEY (user) REFERENCES users(id) ON DELETE CASCADE -- we dont rly need to keep user_settings if user is deleted
 );
 
 CREATE TABLE secrets (
@@ -26,7 +26,7 @@ CREATE TABLE sessions (
     username VARCHAR(255) NOT NULL,
     expires TIMESTAMP NULL,
     updated TIMESTAMP NULL,
-    FOREIGN KEY (user) REFERENCES users(id)
+    FOREIGN KEY (user) REFERENCES users(id) ON DELETE CASCADE -- same here we can delete the users sessions if they removed their account
 );
 
 CREATE TABLE messages (
