@@ -12,7 +12,7 @@ export const generate_session_id = () => {
 
 export const get_session = async (session_id) => {
     try {
-        const [results] = await pool.promise().query('SELECT * FROM sessions WHERE id = ? AND expires > NOW()', [session_id]);
+        const [results] = await pool.promise().query('SELECT s.id AS session_id, s.user AS user_id, s.expires, s.updated, u.username, us.icon FROM sessions s INNER JOIN users u ON s.user = u.id LEFT JOIN user_settings us ON u.id = us.user WHERE s.id = ? AND s.expires > NOW()', [session_id]);
 
         if (results.length === 0) return null
 
@@ -20,6 +20,7 @@ export const get_session = async (session_id) => {
         return {
             user: session_data.user,
             username: session_data.username,
+            icon: session_data.icon
         };
     } catch (err) {
         throw err;
@@ -81,6 +82,7 @@ export async function check_session(req, ws) {
         if (ws) {
             ws.user = session_data.user;
             ws.username = session_data.username;
+            ws.icon = session_data.icon;
         }
 
         return true;
