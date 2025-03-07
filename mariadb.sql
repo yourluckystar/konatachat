@@ -23,7 +23,6 @@ CREATE TABLE secrets (
 CREATE TABLE sessions (
     id VARCHAR(255) PRIMARY KEY,
     user INT NOT NULL,
-    username VARCHAR(255) NOT NULL,
     expires TIMESTAMP NULL,
     updated TIMESTAMP NULL,
     FOREIGN KEY (user) REFERENCES users(id) ON DELETE CASCADE -- same here we can delete the users sessions if they removed their account
