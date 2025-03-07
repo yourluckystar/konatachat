@@ -17,8 +17,9 @@ export const get_session = async (session_id) => {
         if (results.length === 0) return null
 
         const session_data = results[0];
+
         return {
-            user: session_data.user,
+            user: session_data.user_id,
             username: session_data.username,
             icon: session_data.icon
         };
