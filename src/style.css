@@ -62,6 +62,7 @@ body {
 #messages {
     display: flex;
     flex-direction: column;
+    gap: 0.1rem;
 }
 
 .input-container {
@@ -144,26 +145,52 @@ body {
 }
 
 .timestamp {
-    color: whitesmoke;
+    color: gray;
     font-size: var(--small-font);
 }
 
-.message-content {
+.message-body {
     display: flex;
     flex-direction: column;
+}
+
+.message-details {
+    display: flex;
     gap: 0.25rem;
 }
 
+.icon-wrapper {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
 .icon {
-    width: 20px;
-    height: 18px;
     object-fit: contain;
     object-position: center;
+    cursor: pointer;
+    height: 17px;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    bottom: -126%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    font-size: var(--tiny-font);
+    z-index: 999;
+}
+
+.icon-wrapper:hover .tooltip {
+    display: block;
 }
 
 .sender {
     font-size: var(--small-font);
-    color: gray;
+    color: rgb(45, 45, 45);
 }
 
 .content {
@@ -174,7 +201,7 @@ body {
     word-break: break-all;
 }
 
-.files {
+.attachments {
     flex-direction: column;
     gap: 0.25rem;
     word-wrap: break-word;

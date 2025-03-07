@@ -62,13 +62,32 @@
                     <template id="message-template">
                         <div class="message">
                             <div class="timestamp"></div>
-                            <div class="message-content">
-                                <div style="display: flex;">
-                                    <div class="icon"></div>
+                            <div class="message-body">
+                                <div class="message-details">
+                                    <div class="icon-wrapper">
+                                        <img class="icon">
+                                        <span class="tooltip"></span>
+                                    </div>
                                     <div class="sender"></div>
                                     <div class="content"></div>
                                 </div>
-                                <div class="files"></div>
+                                <div class="attachments"></div>
+                            </div>
+                        </div>
+                    </template>
+                    <template id="dummy-message-template">
+                        <div class="message" style="filter: blur(3px);">
+                            <div class="timestamp"></div>
+                            <div class="message-body">
+                                <div class="message-details">
+                                    <div class="icon-wrapper">
+                                        <img class="icon">
+                                        <span class="tooltip"></span>
+                                    </div>
+                                    <div class="sender"></div>
+                                    <div class="content"></div>
+                                </div>
+                                <div class="attachments"></div>
                             </div>
                         </div>
                     </template>
