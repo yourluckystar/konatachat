@@ -1,9 +1,9 @@
 files
-node_modules
 assets
 .env
-package-lock.json
 todo.txt
+*.o
+server
 
 # temporary self-signed
 localhost.crt
